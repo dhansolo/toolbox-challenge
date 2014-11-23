@@ -1,0 +1,69 @@
+@import url(http://fonts.googleapis.com/css?family=Slabo+13px);
+
+html {
+	border-top: 100px ridge #2B4B6F;
+}
+
+header h1, h4, section {
+	font-family: 'Slabo 13px', Helvetica, 'Helvetica neue';
+	font-weight: 300;
+	color: #FFFFFF;
+	text-align: center;
+	margin: 0;
+	padding-bottom: 7px;
+}
+
+header h1 {
+	position: fixed;
+	top: 10px;
+	left: 380px;
+	font-size: 75px;
+	text-decoration: underline;
+}
+
+button, a:link {
+	font-size: 20px;
+	text-decoration: none;
+	font-family: 'Slabo 13px', Helvetica, 'Helvetica neue';
+}
+
+a:visited {
+	text-decoration: none;
+	color: #000000;
+}
+
+body {
+	background-color: #FF9933;
+}
+
+#stats p{
+	display: inline;
+	font-size: 25px;
+}
+
+#win {
+	display: none;
+}
+
+#win p {
+	font-size: 100px;
+	margin-top: 0px;
+	margin-bottom: 0px;
+}
+
+#gameboard {
+	max-width: 500px;
+	margin-left: 380px;
+}
+
+#gameboard img {
+	border: 5px solid #2B4B6F;
+	max-width: 100px;
+	margin: 1px;
+}
+
+#gameboard img:hover {
+	border: 5px solid white;
+}
+
+
