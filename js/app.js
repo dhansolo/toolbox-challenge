@@ -34,51 +34,58 @@ for(var index = 0; index < 16; index++) {
 	gameBoard.append(newTile);
 }
 
-$("#gameboard").one('click', function() {
-	var currentTime = _.now();
-	time = window.setInterval(function(){
-		$('#currentTime').html(Math.floor((_.now()-currentTime)/1000));
-	}, 1000);
+$(document).ready(function() {
+	$("#gameboard").one('click', function() {
+		var currentTime = _.now();
+		time = window.setInterval(function(){
+			$('#currentTime').html(Math.floor((_.now()-currentTime)/1000));
+		}, 1000);
+	});
 });
 
-$("#gameboard img").click(function() {
-	if(canFlip) {
-		$(this).attr('src', tilePictures[$(this).data('index')]);
-		if(tileOne === null) {
-			tileOne = $(this);
-		} else {
-			tileTwo = $(this);
-			canFlip = false;
-			if(tileTwo.hasClass("flipped") || tileOne.data('index') === tileTwo.data('index')) {
-				tileTwo = null;
-				canFlip = true;
-			}
-			if(tileOne.data('image') === tileTwo.data('image')) {
-				pairsLeft--;
-				pairsMatch++;
-				tileOne.addClass("flipped");
-				tileTwo.addClass("flipped");
-				tileOne = null;
-				tileTwo = null;
-				canFlip = true;
+$(document).ready(function() {
+	$("#gameboard img").click(function() {
+		if(canFlip) {
+			$(this).attr('src', tilePictures[$(this).data('index')]);
+			if(tileOne === null) {
+				tileOne = $(this);
+				if(tileOne.hasClass("flipped")) {
+					tileOne = null;
+				}
 			} else {
-				wrong++;
-				setTimeout(function() {
-					tileOne.attr("src", "img/tile-back.png");
-					tileTwo.attr("src", "img/tile-back.png");
+				tileTwo = $(this);
+				canFlip = false;
+				if(tileTwo.hasClass("flipped") || tileOne.data('index') === tileTwo.data('index')) {
+					tileTwo = null;
+					canFlip = true;
+				}
+				if(tileOne.data('image') === tileTwo.data('image')) {
+					pairsLeft--;
+					pairsMatch++;
+					tileOne.addClass("flipped");
+					tileTwo.addClass("flipped");
 					tileOne = null;
 					tileTwo = null;
 					canFlip = true;
-				}, 1000);
+				} else {
+					wrong++;
+					setTimeout(function() {
+						tileOne.attr("src", "img/tile-back.png");
+						tileTwo.attr("src", "img/tile-back.png");
+						tileOne = null;
+						tileTwo = null;
+						canFlip = true;
+					}, 1000);
+				}
+				$('#pairsMatch').text(pairsMatch);
+				$('#pairsLeft').text(pairsLeft);
+				$('#wrongGuesses').text(wrong);
 			}
-			$('#pairsMatch').text(pairsMatch);
-			$('#pairsLeft').text(pairsLeft);
-			$('#wrongGuesses').text(wrong);
+			if(pairsLeft === 0 && pairsMatch === 8) {
+				clearInterval(time);
+				$('#win').css('display', 'inline');
+				$('#gameboard').css('display', 'none');
+			}
 		}
-		if(pairsLeft === 0 && pairsMatch === 8) {
-			clearInterval(time);
-			$('#win').css('display', 'inline');
-			$('#gameboard').css('display', 'none');
-		}
-	}
+	});
 });
