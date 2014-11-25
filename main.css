@@ -14,17 +14,13 @@ header h1, h2, h4, section {
 	padding-bottom: 7px;
 }
 
-#rulesPage {
-	color: black;
-}
-
 header h1 {
-	display: inline;
-	position: fixed;
-	top: 10px;
-	left: 380px;
 	font-size: 75px;
 	text-decoration: underline;
+}
+
+#rulesPage {
+	color: black;
 }
 
 button, a:link {
@@ -55,11 +51,13 @@ body {
 	font-size: 100px;
 	margin-top: 0px;
 	margin-bottom: 0px;
+	text-align: center;
 }
 
 #gameboard {
 	max-width: 500px;
-	margin-left: 380px;
+	margin-left: auto;
+	margin-right: auto;
 }
 
 #gameboard img {
@@ -70,6 +68,20 @@ body {
 
 #gameboard img:hover {
 	border: 5px solid white;
+}
+
+@media screen and (max-width: 500px) {
+
+#gameboard {
+	max-width: 400px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+#gameboard img {
+	border: 5px solid #2B4B6F;
+	max-width: 75px;
+	margin: 1px;
 }
 
 
