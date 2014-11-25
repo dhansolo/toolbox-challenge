@@ -8,6 +8,7 @@ var time;
 var pairsMatch = 0;
 var wrong = 0;
 var pairsLeft = 8;
+
 $('#pairsMatch').text(pairsMatch);
 $('#pairsLeft').text(pairsLeft);
 $('#wrongGuesses').text(wrong);

@@ -1,16 +1,21 @@
 @import url(http://fonts.googleapis.com/css?family=Slabo+13px);
 
-html {
+body {
 	border-top: 100px ridge #2B4B6F;
+	margin: 0px;
 }
 
-header h1, h4, section {
+header h1, h2, h4, section {
 	font-family: 'Slabo 13px', Helvetica, 'Helvetica neue';
 	font-weight: 300;
 	color: #FFFFFF;
 	text-align: center;
 	margin: 0;
 	padding-bottom: 7px;
+}
+
+#rulesPage {
+	color: black;
 }
 
 header h1 {
@@ -66,8 +71,6 @@ body {
 	border: 5px solid white;
 }
 
-.flipped {
-	border: 5px solid black;
-}
+
 
 
