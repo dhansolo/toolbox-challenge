@@ -2,7 +2,7 @@
 
 body {
 	border-top: 100px ridge #2B4B6F;
-	margin: 0px;
+	margin: 0;
 }
 
 header h1, h2, h4, section {
@@ -19,6 +19,7 @@ header h1, h2, h4, section {
 }
 
 header h1 {
+	display: inline;
 	position: fixed;
 	top: 10px;
 	left: 380px;
